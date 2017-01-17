@@ -1,0 +1,62 @@
+<!--
+js-audio-pwm - a JavaScript utility to generate PWM AC audio output
+               
+Copyright 2017  Herr_Alien <alexandru.garofide@gmail.com>
+                
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+                
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+                
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see https://www.gnu.org/licenses/agpl.html
+-->
+<html>
+<head>
+    <script src="pwmmanager.js"></script>
+</head>
+
+<body>
+
+<input type="button" value="play" id="play"/>
+<input type="number" value ="0.5" step="0.01" id="factor" min="0" max="1"/>
+<br>
+<br>
+<pre>js-ac-pwm - a JavaScript utility to generate PWM AC audio output
+               
+Copyright 2017  Herr_Alien &lt;alexandru.garofide@gmail.com&gt;
+                
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+                
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+                
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <a href="https://www.gnu.org/licenses/agpl.html" target="_blank">https://www.gnu.org/licenses/agpl.html</a>
+</pre>
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+(function(){
+
+document.getElementById("factor").oninput = function () {  PWMManager.fillFactor = this.value;  PWMManager.updateBuffer(); }
+
+document.getElementById("play").onclick = function () { PWMManager.stop(); PWMManager.updateBuffer(); PWMManager.play(); }
+
+})();
+
+
+</script>
